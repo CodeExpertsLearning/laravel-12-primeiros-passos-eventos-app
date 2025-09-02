@@ -9,3 +9,16 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.btn {
+    @apply py-2 px-4 border  text-white rounded  transition duration-300 ease-in-out
+}
+.btn-blue {
+   @apply border-blue-900 bg-blue-600 hover:bg-blue-900
+}
+.btn-red {
+   @apply border-red-900 bg-red-600 hover:bg-red-900
+}
+.btn-green {
+   @apply border-green-900 bg-green-600 hover:bg-green-900
+}
