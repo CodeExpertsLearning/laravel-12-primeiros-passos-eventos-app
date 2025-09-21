@@ -11,7 +11,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+
+        $middleware->alias([
+            'subscription.check' => \App\Http\Middleware\TesteMiddleware::class
+        ]);
+
+        $middleware->web(['subscription.check']);
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

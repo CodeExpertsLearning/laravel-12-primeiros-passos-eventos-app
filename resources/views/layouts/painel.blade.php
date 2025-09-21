@@ -10,6 +10,18 @@
 </head>
 
 <body>
+    <header class="max-w-7xl mx-auto py-10 flex justify-end">
+        <nav>
+            <ul>
+                <li>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="text-red-800 font-bold cursor-pointer hover:underline">Sair</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <div class="max-w-7xl mx-auto py-10">
         @yield('body')
     </div>
