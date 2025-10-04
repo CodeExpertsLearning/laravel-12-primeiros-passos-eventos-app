@@ -22,3 +22,26 @@
 .btn-green {
    @apply border-green-900 bg-green-600 hover:bg-green-900
 }
+
+.tox-tinymce {
+    border: 1px solid oklch(27.8% 0.033 256.848) !important;
+}
+
+.body-single h1, .body-single h1, .body-single h1 {
+    @apply font-bold
+}
+.body-single h1 {
+    @apply text-5xl
+}
+
+.body-single h2 {
+    @apply text-3xl
+}
+
+.body-single h3 {
+    @apply text-2xl
+}
+
+.body-single h4 {
+    @apply text-xl
+}

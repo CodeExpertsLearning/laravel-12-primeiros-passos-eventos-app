@@ -23,8 +23,13 @@
         </nav>
     </header>
     <div class="max-w-7xl mx-auto py-10">
+        <div class="w-full my-10">
+            @include('includes.messages')
+        </div>
         @yield('body')
     </div>
+
+    @stack('scripts')
 </body>
 
 </html>

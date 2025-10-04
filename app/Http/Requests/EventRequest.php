@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\EventStatus;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class EventRequest extends FormRequest
 {
@@ -25,9 +27,11 @@ class EventRequest extends FormRequest
             'title' => ['required', 'min:10'],
             'description' => ['nullable', 'min:10'],
             'body' => ['required', 'min:50'],
-            'slug' => ['required', 'unique:events,slug,' . $this->event . ',id'],
+            //'slug' => ['required', 'unique:events,slug,' . $this->event . ',id'],
             'start_event' => ['required'],
-            'end_event'  => ['required']
+            'end_event'  => ['required'],
+            'cover'      => ['nullable', 'image'],
+            'status' => ['required', Rule::enum(EventStatus::class)]
         ];
     }
 
@@ -37,7 +41,8 @@ class EventRequest extends FormRequest
             // 'title.required' => 'Este título é obrigatório!',
             'required' => 'Este campo é obrigatório!',
             'min' => 'Este campo precisa ter no mínimo :min caracteres',
-            'unique' => 'Este slug já está sendo utilizado!'
+            'unique' => 'Este slug já está sendo utilizado!',
+            'Illuminate\\Validation\\Rules\\Enum' => 'Este status é inválido!'
         ];
     }
 }

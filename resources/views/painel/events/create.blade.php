@@ -5,7 +5,7 @@
         <a href="{{ route('painel.events.index') }}" class="underline">Eventos</a> &raquo; <strong>Criar Evento</strong>
     </div>
     <div class="w-full">
-        <form action="{{ route('painel.events.store') }}" method="POST">
+        <form action="{{ route('painel.events.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="w-full mb-6">
@@ -43,10 +43,14 @@
             </div>
 
             <div class="w-full mb-6">
-                <label for="slug">Slug</label>
-                <input type="text" name="slug" value="{{ old('slug') }}" id="slug"
-                    class="w-full border border-gray-800 rounded p-1">
-                @error('slug')
+                <label for="status">Status</label>
+                <select name="status" id="status" class="w-full border border-gray-800 rounded p-1">
+                    <option value="">Selecione Status</option>
+                    <option value="ACTIVE">ATIVO</option>
+                    <option value="INACTIVE">INATIVO</option>
+                    <option value="DRAFT">RASCUNHO</option>
+                </select>
+                @error('status')
                     <div class="p-2 border border-red-900 bg-red-400 text-red-900 rounded mb-6">
                         {{ $message }}
                     </div>
@@ -75,9 +79,23 @@
                 @enderror
             </div>
 
+            <div class="w-full mb-6">
+                <label for="cover">Capa Evento</label>
+
+                <input type="file" name="cover" id="cover" class="w-full border border-gray-800 rounded p-1">
+
+                @error('cover')
+                    <div class="p-2 border border-red-900 bg-red-400 text-red-900 rounded mb-6">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <button class="btn btn-green">
                 Salvar
             </button>
         </form>
     </div>
+
+    @include('includes.script-format')
 @endsection

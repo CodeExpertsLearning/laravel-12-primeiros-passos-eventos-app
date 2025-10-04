@@ -3,14 +3,13 @@
 use App\Http\Middleware\TesteMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
 
-// Route::get(
-//     '/events/{event?}',
-//     [\App\Http\Controllers\Painel\EventsController::class, 'show']
-// );
+Route::get(
+    '/events/{event:slug}',
+    [\App\Http\Controllers\HomeController::class, 'single']
+)->name('home.single');
 
 // Route::post($uri, $action);
 // Route::put($uri, $action);
